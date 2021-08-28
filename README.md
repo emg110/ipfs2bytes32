@@ -19,5 +19,5 @@ In this solution considering the majority of IPFS and default settings to it bei
 
 ## Convertor functions have been contributed to these Algorand SDKs:
 
-- JS-SDK
-- PYTHON-SDK
+- [JS-SDK](https://github.com/algorand/js-algorand-sdk/pull/427)
+- [PYTHON-SDK](https://github.com/algorand/py-algorand-sdk/pull/229)
