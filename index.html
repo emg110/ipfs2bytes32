@@ -73,6 +73,7 @@
 			<select name="Size" id="size">
 				<option value="256">256</option>
 			</select>
+			<br>
 			<input type="button" value="Clear" onClick="clickClear()">
 			<input type="button" value="Load Sample" onClick="clickSample()">
 			<br>
@@ -95,7 +96,7 @@
 			<br>
 			<label for="metadata">Metadatahash</label>
 			<br>
-			<input style="display: inline-block; margin:auto" type="text" value="0x" size="2" id="metadataIniInput">
+			<input disabled style="display: inline-block; margin:auto" type="text" value="0x" size="2" id="metadataIniInput">
 			<input style="display: inline-block; margin:auto" type="text" value="" size="80" id="metadataInput">
 			<br>
 			<input type="button" value="Copy" onClick="clickCopyMetadata()">
