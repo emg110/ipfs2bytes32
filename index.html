@@ -74,6 +74,7 @@
 				<option value="256">256</option>
 			</select>
 			<input type="button" value="Clear" onClick="clickClear()">
+			<input type="button" value="Load Sample" onClick="clickSample()">
 			<br>
 			<br>
 			<br>
@@ -110,6 +111,10 @@
 			var metadataBox = document.getElementById("metadataInput");
 			ipfsBox.value = String('')
 			metadataBox.value = String('')
+		}
+		function clickSample(){
+			var ipfsBox = document.getElementById("ipfsInput");
+			ipfsBox.value = String('QmbWqxBEKC3P8tqsKc98xmWNzrzDtRLMiMPL8wBuTGsMnR')
 		}
 		function convertIpfsCidV0ToByte32(cid) {
 			return `${bs58.decode(cid).slice(2).toString('hex')}`;
