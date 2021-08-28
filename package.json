@@ -1,0 +1,25 @@
+{
+  "name": "ipfs2bytes32",
+  "version": "1.0.0",
+  "description": "Algorand metadatahash & url fields of ASA Bytes 32 (hex) <--> IPFS CID V1 Base 58",
+  "keywords": [
+    "base58",
+    "algorand",
+    "crypto",
+    "ipfs",
+    "cid",
+    "version0",
+    "encode",
+    "decode",
+    "byte32"
+  ],
+  "license": "MIT",
+ 
+  "repository": {
+    "url": "https://github.com/emg110/ipfs2bytes32",
+    "type": "git"
+  },  
+  "dependencies": {
+    "bs58": "^4.0.1"
+  }
+}

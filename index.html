@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		body {
+			background-color: #fffae6;
+		}
+
+		header {
+			text-align: center;
+			background-color: #f0f5f5;
+			padding: 20px;
+			margin-top: 0px;
+		}
+
+		section {
+			width: 650px;
+			margin: 0 auto;
+			background-color: #fffae6;
+		}
+
+		form {
+			text-align: left;
+			margin-top: 50px;
+		}
+
+		select {
+			margin-right: 25%;
+		}
+
+		input[type="text"] {
+			margin-right: 10px;
+		}
+
+		input[type="button"] {
+			margin-right: 10px;
+		}
+
+		btn {
+			text-align: center
+		}
+
+		#btnDiv {
+			margin-left: 26%;
+		}
+	</style>
+
+	<script src="./bs58.bundle.js"></script>
+	
+</head>
+
+<body>
+
+	<header>
+		<h2>IPFS CID V0 <===> 32 Byte string convertor</h2>
+		<p>
+			IPFS version 0 base58 CID to Algorand standard asset metadatahash field (32 byte)
+		</p>
+	</header>
+
+
+	<section>
+		<div>
+			<label for="convertor" style="margin-right:27px;">Function:</label>
+			<select name="Function" id="function">
+				<option value="sha2">sha2</option>
+			</select>
+
+			<label for="cars">Size:</label>
+			<select name="Size" id="size">
+				<option value="256">256</option>
+			</select>
+			<input type="button" value="Clear" onClick="clickClear()">
+			<br>
+			<br>
+			<br>
+			<br>
+			<label for="ipfs" style="margin-right:25px;">IPFS CID</label>
+			<input type="text" size="90" value="" id="ipfsInput">
+			<br>
+			<input type="button" value="Copy" onClick="clickCopyIpfs()">
+			<input type="button" value="Paste" onClick="clickPasteIpfs()">
+		
+			<br>
+			<br>
+			<div id="btnDiv">
+				<button class="btn" onClick="clickConvertIpfsCidV0ToByte32()"><i class="fa fa-arrow-down"></i></button>
+				<button class="btn" onClick="clickConvertByte32ToIpfsCidV0()"><i class="fa fa-arrow-up"></i></button>
+			</div>
+
+			<br>
+			<label for="metadata">Metadatahash</label>
+			<br>
+			<input style="display: inline-block; margin:auto" type="text" value="0x" size="2" id="metadataIniInput">
+			<input style="display: inline-block; margin:auto" type="text" value="" size="80" id="metadataInput">
+			<br>
+			<input type="button" value="Copy" onClick="clickCopyMetadata()">
+			<input type="button" value="Paste" onClick="clickPasteMetadata()">
+			
+		</div>
+		
+	</section>
+	
+	<script>
+		function clickClear(){
+			var ipfsBox = document.getElementById("ipfsInput");
+			var metadataBox = document.getElementById("metadataInput");
+			ipfsBox.value = String('')
+			metadataBox.value = String('')
+		}
+		function convertIpfsCidV0ToByte32(cid) {
+			return `${bs58.decode(cid).slice(2).toString('hex')}`;
+		}
+		function convertByte32ToIpfsCidV0(str) {
+			if (str.indexOf('0x') === 0) {
+				str = str.slice(2);
+			}
+			return bs58.encode(bs58.Buffer.from(`1220${str}`, 'hex'));
+		}
+		function clickCopyIpfs() {
+			var ipfsBox = document.getElementById("ipfsInput");
+			ipfsBox.select();
+			document.execCommand("copy");
+		}
+
+		async function clickPasteIpfs() {
+			var input = document.getElementById("ipfsInput");
+			const text = await navigator.clipboard.readText();
+			input.value = text;
+		}
+
+
+		function clickCopyMetadata() {
+			var metadataBox = document.getElementById("metadataInput");
+			metadataBox.select();
+			document.execCommand("copy");
+		}
+
+		async function clickPasteMetadata() {
+			var input = document.getElementById("metadataInput");
+			const text = await navigator.clipboard.readText();
+			input.value = text;
+		}
+
+		function clickConvertIpfsCidV0ToByte32() {
+
+			var ipfsBox = document.getElementById("ipfsInput");
+			var metadataBox = document.getElementById("metadataInput");
+			const converted = convertIpfsCidV0ToByte32(ipfsBox.value);
+			console.log(converted)
+			metadataBox.value = String(converted);
+
+		}
+		function clickConvertByte32ToIpfsCidV0() {
+			var ipfsBox = document.getElementById("ipfsInput");
+			var metadataBox = document.getElementById("metadataInput");
+			const converted = convertByte32ToIpfsCidV0('0x'+metadataBox.value);
+			console.log(converted)
+			ipfsBox.value = String(converted);
+
+		}
+	</script>
+
+</body>
+
+</html>
