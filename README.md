@@ -10,9 +10,7 @@ This is a gist and example code repository for a solution on how to fit IPFS CID
 IPFS CID v0 is constructed like this: <function><size><256 bit hash>
 In this solution considering the majority of IPFS and default settings to it being v0 with sha2 function and 256 bit size, therefore these two sections can be omitted by service internal logic agreement (they are known bytes!). The remaining is a 256 bit (32 Bytes) hash string that fits into Algorand's ASA `metadatahash` field.  
 
-## [SEE HOW IT WORKS ONLINE](https://emg110.github.io/ipfs2bytes32/)
- 
-## Examples are provided in
+ ## Examples are provided in
 
 - Javascript
 - Typescript
@@ -22,3 +20,9 @@ In this solution considering the majority of IPFS and default settings to it bei
 
 - [JS-SDK](https://github.com/algorand/js-algorand-sdk/pull/427)
 - [PYTHON-SDK](https://github.com/algorand/py-algorand-sdk/pull/229)
+ 
+## [SEE HOW IT WORKS ONLINE](https://emg110.github.io/ipfs2bytes32/)
+ ![image](https://user-images.githubusercontent.com/1900448/133991905-d462378b-ea92-4f71-9666-77d6d7893639.png)
+
+ 
+
