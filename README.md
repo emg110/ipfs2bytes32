@@ -1,7 +1,7 @@
 # IPFS CID v0 <--> 32 Bytes string
 ## Now you can include IPFS content or metadata CID addresses into Algorand Standard Asset's `metadatahash`
 
-### IMPORTANT: on Release 2.7.1 Algorand increased the URL field capacity to 96 Bytes so it does not need this solution, but still URL and CDI in respect to ASA context can have various usecases and some Devs like me may still prefer metadatahash field (for IPFS CDI storage) which includes exactly the ASA metadata and is an standard 32 Byte (256 bit) hash! Unoccupied URL then can still be used for ASA corresponding longer service endpoint URLs. 
+### IMPORTANT: on Release 2.7.1 Algorand increased the URL field capacity to 96 Bytes so it does not need this solution, but still URL and CID in respect to ASA context can have various usecases and some Devs like me may still prefer metadatahash field (for IPFS CDI storage) which includes exactly the ASA metadata and is an standard 32 Byte (256 bit) hash! Unoccupied URL then can still be used for ASA corresponding longer service endpoint URLs. 
 
 This is a gist and example code repository for a solution on how to fit IPFS CID v0 (majority of IPFS addresses) into Algorand Standard Asset's `metadatahash` field which is 32 bytes. This solution makes it possible to avoid including the IPFS CID into ASA's transactions note field which is the current practice in Algorand's Dev  and user community. This way the IPFS address is originally and immutably part of ASA context and data on chain, directly fetched and accessed by ASA ID.
 
